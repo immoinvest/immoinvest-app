@@ -1,0 +1,21 @@
+{
+  "name": "v0-immo-tool",
+  "version": 2,
+  "public": true,
+  "github": {
+    "enabled": true,
+    "silent": false
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}

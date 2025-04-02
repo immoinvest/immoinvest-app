@@ -2,6 +2,7 @@
   "name": "v0-immo-tool",
   "version": 2,
   "public": true,
+  "framework": "create-react-app",
   "github": {
     "enabled": true,
     "silent": false
@@ -9,13 +10,36 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/react"
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
     }
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/logo192.png",
+      "dest": "/logo192.png"
+    },
+    {
+      "src": "/logo512.png",
+      "dest": "/logo512.png"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/index.html"
     }
   ]
 }
